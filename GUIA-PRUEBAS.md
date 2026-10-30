@@ -1,4 +1,6 @@
-# Guía de pruebas externas — Mukala v2
+# Guía de pruebas externas — Mukala (v4 minimalista)
+
+> **Nota v4:** la página ya no tiene formularios, asistente ni simulador. Las pruebas con lectores de pantalla y compradores siguen valiendo, pero los pasos que mencionan formularios, asistente o simulador (bloques 1 y 3) se reducen a: abrir un proyecto, leer su detalle y contactar por WhatsApp, teléfono o correo. La lista de aprobaciones del cliente (§4) sigue vigente; los textos de consentimiento de datos del formulario ya no existen en la página.
 
 Para qué sirve: son las pruebas que **no se pueden hacer desde el código** y que separan el 4,8 de calidad de implementación (columna A de `AUDITORIA-UX.md`) del 4,8 certificable (columna B). Cada bloque dice quién lo hace, cuánto tarda y qué resultado cuenta como aprobado.
 

@@ -80,3 +80,12 @@ Después de rehacer la página (tarjetas de proyecto, valores con foto, simulado
 
 ## 7. Artica (2026-10-30)
 Se incorporaron los dos renders de Artica (portada de 3 imágenes, tarjeta de proyecto, galería de 9 fotos). Las pruebas se actualizaron a 6 proyectos y 9 fotos y se repitieron sobre `dist/`: axe 0 en 11 estados; teclado, árbol de accesibilidad, 15 anchos, preferencias y 5 tareas: 0 problemas; WebKit y Pixel 7: sin errores; Lighthouse 100 / 100 / 100 / 100 (móvil LCP 0,8 s con la portada nueva); contraste mínimo sobre foto 8,23:1; scroll con CPU 6× más lenta: mediana 16,7 ms. **Esta incorporación no pasó por una nueva revisión independiente**; la calificación de 4,8 de `AUDITORIA-UX.md` §5 es de la versión anterior.
+
+## 8. v4 minimalista (2026-10-30)
+Página rehecha con menos de la mitad del código. Mediciones sobre `dist/` con `tests/verificar.mjs`, `engines.mjs`, `fps.mjs`, `navfit.mjs` y Lighthouse:
+- `verificar.mjs`: **PROBLEMAS: ninguno** — teclado (26 paradas, anillo de foco en todas), árbol de accesibilidad (un H1, sin saltos), 15 anchos sin desbordes y con objetivos de 44 px, movimiento reducido, texto al 150 y 200 %, tareas (portada → proyectos → detalle de Álamos con precio y SMMLV definido; contacto), **contraste mínimo del texto sobre fotos 7,45:1**, axe-core 0 violaciones en 5 estados.
+- WebKit (escritorio, iPhone, iPad) y Chrome Pixel 7: sin errores; el diálogo abre y cierra; menú móvil correcto.
+- Lighthouse: **100 / 100 / 100 / 100** en móvil (LCP 1,8 s de laboratorio, 154 KiB) y escritorio (LCP 0,2 s).
+- Scroll con CPU 6× más lenta: mediana 16,7 ms, 0 cuadros por encima de 50 ms.
+- Errores propios corregidos en esta ronda: el texto sobre fotos fallaba el contraste (títulos 2,5:1, etiquetas 1,2:1) hasta reforzar los degradados; la portada tardaba en pintar porque su texto esperaba a JavaScript; las fotos de los paneles competían con la de la portada por el ancho de banda; faltaban reglas base de mi hoja de estilo (se vio por un botón recortado).
+- **Sin revisor independiente esta vez.** Sigue sin poder hacerse aquí: lectores de pantalla reales, Firefox, aparatos físicos y usuarios reales.

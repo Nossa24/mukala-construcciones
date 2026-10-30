@@ -68,6 +68,15 @@ Origen: al mostrar la v2 en una reunión con el cliente, la reacción fue que te
 - Todo respeta `prefers-reduced-motion`, colores forzados y texto grande; la paleta no cambió.
 - **Artica:** los dos renders que envió el cliente (atardecer y noche; archivos tomados de `ora-ai-explorer/img/`, recodificados a WebP con variantes `-320/-800/1600`) son ahora la portada del inicio (3 imágenes: Artica de día, Artica de noche, Álamos), una tarjeta de proyecto («Nuevo», sin precio ni ubicación) y dos fotos de la galería. Nombre exacto, ciudad, precios y estado de obra **sin confirmar**: la tarjeta dice «Consulta la ubicación con un asesor» y «Consulta el valor».
 
+## 3e. Ronda v4 — minimalismo «modo Tesla» (2026-10-30)
+Tras ver la versión publicada, el pedido fue: **quitar formularios y todo lo que sobra, más puntual y elegante**. La página se rehízo desde cero:
+- **Se quitó:** buscador del inicio, cinta dorada, guía lateral de puntos, asistente «Encuentra tu proyecto», simulador de cuota, comparador, los formularios de contacto y del exterior, galería, proceso, preguntas frecuentes, valores en tarjetas, contadores, botón flotante y barra fija del celular.
+- **Queda:** portada a pantalla completa (Artica al atardecer) con una frase, una línea y dos botones; **un panel por proyecto** (foto grande, estado, nombre, una línea con valor y datos, «Ver detalle» y «WhatsApp»; la casa de 51 m² y las casas campestres, de menor resolución, van en formato mitad foto, mitad texto); «Nosotros» con una frase, los cuatro valores en una línea y tres cifras; «Hablemos» sobre la foto nocturna de Artica con WhatsApp, llamada, correo y la línea para quien vive en el exterior. El detalle de cada proyecto (ventana con precio, datos y fotos) se conserva.
+- **Sin formularios ni herramientas:** todo el contacto es por enlaces directos (WhatsApp con mensaje listo, teléfono y correo).
+- Tipografía Archivo en peso 600 y menos texto; la paleta no cambió. 3 enlaces en el menú.
+- Tamaño: CSS 15,7 KB, JS 8,8 KB (antes 55 y 31 KB); Lighthouse móvil carga 154 KiB.
+- Textos y datos siguen **sin aprobar por el cliente** (ver `GUIA-PRUEBAS.md` §4). Los apartados 3 a 3d de arriba describen versiones anteriores que ya no están en la página.
+
 ## 4. Límites honestos
 - **Videos:** Mukala tiene 5 videos en su Wix (Álamos, Dosquebradas, locales, aptos 1106 y 1402), pero están protegidos y no se pueden bajar. El hero está preparado para usar video: con los originales se reemplaza la imagen por `<video>`.
 - **Calidad de imágenes:** varias están reescaladas por IA (la aérea de Dosquebradas, el render de locales). Por eso el hero usa solo 2 imágenes y las demás se muestran en tamaños moderados.
