@@ -25,7 +25,7 @@ const tipo = by('button').filter(n => ['Todos', 'Apartamentos', 'Casas', 'Locale
 out.buscador = tipo.map(n => `${n.name}: pressed=${n.pressed}`);
 if (tipo.some(n => n.pressed === undefined)) bad('botones de tipo sin estado «pulsado»');
 // 6. filas del índice
-const filas = by('button').filter(n => /Artica|Álamos de Mukala|Mukala Dosquebradas|Locales en Dosquebradas|Casa de 51|Casas campestres/.test(n.name || '') && /\$|Consulta|Desde|Valor/.test(n.name || ''));
+const filas = by('button').filter(n => /^(NUEVO|EN CONSTRUCCIÓN|DISPONIBLE|CONSULTAR)\b/i.test(n.name || '') && /\$|Consulta|Desde|Valor/.test(n.name || ''));   // tarjetas del índice (las de «Exterior» no llevan estado)
 out.filas = filas.map(n => n.name.replace(/\s+/g, ' ').slice(0, 110));
 if (filas.length !== 6) bad(`el índice expone ${filas.length} filas con nombre completo (esperaba 6)`);
 filas.forEach(n => { if (/^0\d/.test(n.name)) bad('la fila lee el número decorativo al inicio: ' + n.name.slice(0, 20)); });

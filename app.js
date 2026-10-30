@@ -35,7 +35,7 @@ function validate(nameEl, phoneEl, errEl, mailEl) {
 }
 document.addEventListener('input', e => {
   // en los formularios de contacto el error se limpia al corregir; la tasa del simulador se revalida en calc()
-  if (e.target.closest('#form, #wForm') && e.target.matches('[aria-invalid]')) { e.target.removeAttribute('aria-invalid'); e.target.removeAttribute('aria-describedby'); }
+  if (e.target.closest('#form, #wForm, #eForm') && e.target.matches('[aria-invalid]')) { e.target.removeAttribute('aria-invalid'); e.target.removeAttribute('aria-describedby'); }
 });
 
 // Cada sección se nombra con su encabezado (puntos de referencia navegables)
@@ -729,6 +729,15 @@ $('#form').addEventListener('submit', e => {
   const name = $('#nName').value.trim(), phone = $('#nPhone').value.trim(), mail = $('#nMail').value.trim(), proj = $('#nProj').value, msg = $('#nMsg').value.trim();
   const err = $('#formErr');
   const t = `Hola, soy ${name}. ${proj ? 'Me interesa ' + proj + '. ' : 'Estoy interesado/a en una propiedad. '}${msg ? msg + ' ' : ''}Mi teléfono: ${phone}${mail ? ' · Correo: ' + mail : ''}.`;
+  window.open(waUrl(t), '_blank', 'noopener');
+  err.innerHTML = `<span>Listo: se abrió WhatsApp con tu mensaje. ¿No se abrió? <a href="${waUrl(t)}" target="_blank" rel="noopener">Abrir WhatsApp</a></span>`; err.classList.add('ok');
+});
+/* formulario «desde el exterior»: arma el mensaje con el país y abre WhatsApp */
+$('#eForm').addEventListener('submit', e => {
+  e.preventDefault();
+  if (!validate($('#eName'), $('#ePhone'), $('#eErr'))) return;
+  const name = $('#eName').value.trim(), phone = $('#ePhone').value.trim(), country = $('#eCountry').value.trim(), err = $('#eErr');
+  const t = `Hola, soy ${name}${country ? ' y vivo en ' + country : ''}. Quiero información para comprar en Mukala desde el exterior. Mi WhatsApp: ${phone}.`;
   window.open(waUrl(t), '_blank', 'noopener');
   err.innerHTML = `<span>Listo: se abrió WhatsApp con tu mensaje. ¿No se abrió? <a href="${waUrl(t)}" target="_blank" rel="noopener">Abrir WhatsApp</a></span>`; err.classList.add('ok');
 });
