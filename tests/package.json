@@ -1,0 +1,17 @@
+{
+  "name": "mukala-v2-tests",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Pruebas automáticas de la v2 (teclado, accesibilidad, dispositivos, tareas, axe, Lighthouse, WebKit). Ver README.md",
+  "scripts": {
+    "servir:dev": "node serve.mjs .. 8780 dev",
+    "servir:prod": "node serve.mjs ../dist 8781 prod"
+  },
+  "dependencies": {
+    "axe-core": "4.14.0",
+    "lighthouse": "13.6.0",
+    "playwright": "1.64.1",
+    "puppeteer-core": "25.16.0"
+  }
+}

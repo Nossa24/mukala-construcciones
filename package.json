@@ -1,0 +1,13 @@
+{
+  "name": "mukala-construcciones-v2",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Sitio de Mukala Construcciones (HTML/CSS/JS sin framework). El código fuente está en la raíz; lo que se publica es dist/.",
+  "scripts": {
+    "build": "node build.mjs",
+    "preview": "npx --yes serve dist"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0"
+  }
+}
